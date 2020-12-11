@@ -1,5 +1,4 @@
 #include "pch.h"
-
 #include "Contexts/Context.h"
 #include "Tasks/PrimitiveTasks/PrimitiveTask.h"
 #include "Tasks/CompoundTasks/CompoundTask.h"
@@ -29,7 +28,7 @@ bool Domain::Add(SharedPtr<CompoundTask>& parent, SharedPtr<Slot>& slot)
     FHTN_FATAL_EXCEPTION(StaticCastPtr<ITask>(parent) != StaticCastPtr<ITask>(slot),
                          "Parent and slot cannot be the same");
 
-    FHTN_FATAL_EXCEPTION(_slots.Find(slot->SlotId()) == _slots.End(), "slot already exists in domain definition");
+    FHTN_FATAL_EXCEPTION(!_slots.Contains(slot->SlotId()) , "slot already exists in domain definition");
     parent->AddSubTask(StaticCastPtr<ITask>(slot));
     slot->Parent() = parent;
     _slots.Insert(MakePair(slot->SlotId(), slot));
@@ -220,18 +219,18 @@ DecompositionStatus Domain::FindPlan(IContext& ctx, TaskQueueType& plan)
 
 bool Domain::TrySetSlotDomain(int slotId, Domain& subDomain)
 {
-    auto slot = _slots.Find(slotId);
-    if(slot != _slots.End())
-        {
+    if (!_slots.Contains(slotId))
+    {
+        auto slot = _slots.Find(slotId);
         return slot->second->Set(subDomain.Root());
     }
     return false;
 }
 void Domain::ClearSlot(int slotId)
 {
-    auto iter = _slots.Find(slotId);
-    if(iter != _slots.End())
+    if (_slots.Contains(slotId))
     {
+		auto iter = _slots.Find(slotId);
         iter->second->Clear();
     }
 }

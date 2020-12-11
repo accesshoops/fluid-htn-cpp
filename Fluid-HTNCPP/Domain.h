@@ -22,6 +22,7 @@ protected:
 
 public:
     Domain(const StringType& name);
+    virtual ~Domain(){}
 
     virtual SharedPtr<TaskRoot>& Root() { return _Root; }
     virtual bool Add(SharedPtr<CompoundTask>& parent, SharedPtr<ITask>& subtask) ;

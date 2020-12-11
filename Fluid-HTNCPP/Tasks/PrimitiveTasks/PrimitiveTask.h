@@ -14,6 +14,7 @@ protected:
     ArrayType<SharedPtr<class IEffect>>    _Effects;
 
 public:
+    virtual ~PrimitiveTask(){}
     PrimitiveTask() : ITask(ITaskDerivedClassName::PrimitiveTask){}
     explicit PrimitiveTask(const StringType& name):ITask(ITaskDerivedClassName::PrimitiveTask) { _Name = name; }
     virtual const ArrayType<SharedPtr<ICondition>>& ExecutingConditions() const { return _ExecutingConditions; }

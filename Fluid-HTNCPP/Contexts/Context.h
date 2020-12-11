@@ -48,6 +48,7 @@ protected:
     WorldStateStackArrayType _WorldStateChangeStackArray;
 
 public:
+    virtual ~IContext() {}
     bool  IsInitialized() const { return _IsInitialized; }
     bool& IsDirty() { return _IsDirty; }
 
