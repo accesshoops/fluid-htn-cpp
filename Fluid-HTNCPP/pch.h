@@ -7,8 +7,6 @@
 #ifndef PCH_H
 #define PCH_H
 
-#define USING_CUSTOM_STL 1
-
 #if !USING_CUSTOM_STL
 
 #include <unordered_map>
