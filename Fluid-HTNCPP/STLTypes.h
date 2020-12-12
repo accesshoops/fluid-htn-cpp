@@ -69,7 +69,7 @@ public:
 
     auto Find(T x) -> decltype(m.find(std::forward<T>(x))) { return m.find(std::forward<T>(x)); }
 
-    auto Contains(T x) { return (m.find(x) != m.end()); }
+    auto End() { return m.end(); }
 };
 template<typename T>
 class Set
@@ -82,7 +82,7 @@ public:
 
     auto Find(T x) -> decltype(s.find(std::forward<T>(x))) { return s.find(std::forward<T>(x)); }
 
-    auto End() { return s.end(); }
+    auto Contains(T x) { return (s.find(x) !=  s.end()); }
 };
 
 template<typename T, typename U>
@@ -104,6 +104,13 @@ public:
 
 };
 
+using StringType = std::string;
+
+template<typename T>
+StringType ToString(const T& arg)
+{
+    return std::to_string(arg);
+}
 
 #ifndef FHTN_FATAL_EXCEPTION
 #define FHTN_FATAL_EXCEPTION(condition, msg)                                                                                          \
@@ -118,140 +125,6 @@ public:
 #define FHTN_FATAL_EXCEPTION_V(condition, fmt, ...)  this is for UE4 checkf, verifymsg etc. do not t use elsewhere
 #endif
 
-#else // USING_CUSTOM_STL
-#include <CoreMinimal.h>
-#include <Containers/Queue.h>
-
-template<typename T>
-using SharedPtr = TSharedPtr<T>;
-
-template<typename T, class... ARGS>
-SharedPtr<T> MakeSharedPtr(ARGS&&... args)
-{
-    return MakeShared<T>(std::forward<ARGS>(args)...);
-}
-template <typename T>
-using EnableSharedFromThis = TSharedFromThis<T>;
-
-#define SharedFromThis()  SharedThis(this)
-
-template <typename T,typename U>
-SharedPtr<T> StaticCastPtr(const SharedPtr<U>& Other)
-{
-    return StaticCastSharedPtr<T>(Other);
-}
-
-template<typename T>
-using ArrayType = TArray<T>;
-#define push_back Add
-#define size() Num()
-#define clear() Empty()
-#define pop_back Pop
-
-template<typename T>
-class Queue
-{
-private:
-    TArray<T> q;
-
-public:
-    void push(const T& x)
-    {
-        q.Push(x);
-    }
-    void push(T&& x)
-    {
-        q.Push(std::move(x));
-    }
-    void pop()
-    {
-        q.Pop();
-    }
-    T&     front() { return q.Top(); }
-    size_t size() { return q.Num(); }
-    bool   empty() { return (q.Num() == 0); }
-    void   clear() { q = TArray<T>(); }
-};
-template<typename T>
-class Stack
-{
-private:
-    TArray<T> s;
-
-public:
-    void   push(const T& x) { s.Push(x); }
-    void   push(T&& x) { s.Push(std::move(x)); }
-    void   pop() { return s.Pop(); }
-    T&     top() { return s.Top(); }
-    size_t size() { return s.Num(); }
-    bool   empty() { return sNum() == 0; }
-    void   clear() { s.Empty(); }
-};
-
-template<typename T,typename U>
-class Map
-{
-private:
-    TMap<T, U> m;
-public:
-
-    struct MapEntry
-    {
-        T first;
-        U second;
-    };
-    TSharedPtr<MapEntry> Find(T key)
-    {
-        U* val = m.Find(key);
-        if (val)
-        {
-            return MakeShared<MapEntry>(MapEntry{key, *val});
-        }
-        return nullptr;
-    }
-    auto Insert(T x, U y) { return m.Add(x,y); }
-
-    auto Contains(T x) { return m.Contains(x); }
-};
-
-template<typename T>
-class Set
-{
-private:
-    TSet<T> s;
-public:
-    template<typename V>
-    auto Insert(V&& x) -> decltype(s.Add(std::forward<V>(x))) { return s.Add(std::forward<V>(x)); }
-
-    auto Find(T x) -> decltype(s.Find(std::forward<T>(x))) { return s.Find(std::forward<T>(x)); }
-
-    auto Contains(T x) { return s.Contains(x); }
-};
-
-#define MakePair(a,b) a,b
-
-template<typename P1, typename P2>
-class Pair
-{
-private:
-    TPair<P1,P2> p;
-
-public:
-    Pair(P1 X, P2 Y): p(X,Y){}
-    P1& First() { return p.Key; }
-    P2& Second() { return p.Value; }
-
-};
-
-
-#endif //! USING_CUSTOM_STL
-
-using StringType = std::string;
-
-template <typename T>
-StringType ToString(const T& arg)
-{
-    return std::to_string(arg);
-}
-
-#define FHTN_FATAL_EXCEPTION(condition, msg) checkf(condition, TEXT(msg))
+#else
+#include "STLReplacementTypes.h"
+#endif !USING_CUSTOM_STL

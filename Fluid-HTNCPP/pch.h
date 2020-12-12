@@ -7,10 +7,9 @@
 #ifndef PCH_H
 #define PCH_H
 
-#include <string>
-#include <functional>
-
 #if !USING_CUSTOM_STL
+
+#include <string>
 #include <unordered_map>
 #include <unordered_set>
 #include <memory>
@@ -18,6 +17,7 @@
 #include <stack>
 #include <vector>
 #include <stdexcept>
+#include <functional>
 #include <cstdlib>
 #include <ctime>
 #endif //!USING_CUSTOM_STL
