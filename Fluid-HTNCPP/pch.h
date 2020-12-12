@@ -7,9 +7,10 @@
 #ifndef PCH_H
 #define PCH_H
 
+#define USING_CUSTOM_STL 1
+
 #if !USING_CUSTOM_STL
 
-#include <string>
 #include <unordered_map>
 #include <unordered_set>
 #include <memory>
@@ -17,10 +18,12 @@
 #include <stack>
 #include <vector>
 #include <stdexcept>
-#include <functional>
 #include <cstdlib>
 #include <ctime>
 #endif //!USING_CUSTOM_STL
+
+#include <string>
+#include <functional>
 
 #include "STLTypes.h"
 
