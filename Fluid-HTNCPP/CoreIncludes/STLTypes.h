@@ -3,16 +3,6 @@
 //
 #pragma once
 
-
-using StringType = std::string;
-
-template<typename T>
-StringType ToString(const T& arg)
-{
-    return std::to_string(arg);
-}
-
-
 #if !USING_CUSTOM_STL
 
 template<typename T>
@@ -113,6 +103,15 @@ public:
     P2& Second() { return p.second; }
 
 };
+
+using StringType = std::string;
+
+template<typename T>
+StringType ToString(const T& arg)
+{
+    return std::to_string(arg);
+}
+
 #ifndef FHTN_FATAL_EXCEPTION
 #define FHTN_FATAL_EXCEPTION(condition, msg)                                                                                          \
     if (!(condition))                                                                                                              \
