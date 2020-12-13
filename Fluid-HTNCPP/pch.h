@@ -9,7 +9,6 @@
 
 #if !USING_CUSTOM_STL
 
-#include <string>
 #include <unordered_map>
 #include <unordered_set>
 #include <memory>
@@ -17,13 +16,12 @@
 #include <stack>
 #include <vector>
 #include <stdexcept>
-#include <functional>
 #include <cstdlib>
 #include <ctime>
 #endif //!USING_CUSTOM_STL
 
-#include "STLTypes.h"
-
+#include <string>
+#include <functional>
 
 using namespace std::string_literals;
 
