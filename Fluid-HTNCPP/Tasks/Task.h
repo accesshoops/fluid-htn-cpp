@@ -1,5 +1,4 @@
 #pragma once
-#include "CoreIncludes/STLTypes.h"
 #include "Tasks/CompoundTasks/DecompositionStatus.h"
 
 namespace FluidHTN
@@ -70,7 +69,7 @@ public:
 
     virtual bool AddCondition(SharedPtr<ICondition>& Condition)
     {
-        _Conditions.push_back(Condition);
+        _Conditions.Add(Condition);
         return true;
     }
 
