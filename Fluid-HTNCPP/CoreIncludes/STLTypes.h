@@ -32,7 +32,7 @@ private:
 public:
     ArrayType(){}
     ArrayType(size_t s) : vec(s){}
-    void Add(const T& x) {return vec.push_back(x);}
+    void Add(const T& x) {vec.push_back(x);}
     size_t size() const {return vec.size();}
     void clear() {return vec.clear();}
     void PopBack(){vec.pop_back();}
@@ -145,6 +145,14 @@ StringType ToString(const T& arg)
 #define FHTN_FATAL_EXCEPTION_V(condition, fmt, ...)  this is for UE4 checkf, verifymsg etc. do not t use elsewhere
 #endif
 
+inline void InitializeRandom()
+{
+    std::srand((unsigned int)std::time(nullptr));
+}
+inline int NextRandom()
+{
+    return std::rand();
+}
 #else
 #include "STLReplacementTypes.h"
 #endif !FHTN_USING_CUSTOM_STL
