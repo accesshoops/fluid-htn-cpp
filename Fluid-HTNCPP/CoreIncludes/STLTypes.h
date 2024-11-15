@@ -106,7 +106,7 @@ public:
 };
 
 template<typename T, typename U>
-auto MakePair(T&& A, U&& B) -> decltype(std::make_pair(std::forward<T>(A), std::forward<U>(B)) )
+auto DoMakePair(T&& A, U&& B) -> decltype(std::make_pair(std::forward<T>(A), std::forward<U>(B)) )
 {
     return std::make_pair(std::forward<T>(A), std::forward<U>(B));
 }

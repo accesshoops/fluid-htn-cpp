@@ -1,14 +1,14 @@
 #pragma once
-#include "Domain.h"
-#include "Tasks/CompoundTasks/PausePlanTask.h"
-#include "Tasks/PrimitiveTasks/PrimitiveTask.h"
-#include "Tasks/CompoundTasks/Sequence.h"
-#include "Tasks/CompoundTasks/Selector.h"
-#include "Tasks/CompoundTasks/RandomSelector.h"
-#include "Tasks/OtherTasks/Slot.h"
-#include "Conditions/Condition.h"
-#include "Operators/Operator.h"
-#include "Effects/Effect.h"
+#include "Fluid-HTNCPP/CoreIncludes/Domain.h"
+#include "Fluid-HTNCPP/Tasks/CompoundTasks/PausePlanTask.h"
+#include "Fluid-HTNCPP/Tasks/PrimitiveTasks/PrimitiveTask.h"
+#include "Fluid-HTNCPP/Tasks/CompoundTasks/Sequence.h"
+#include "Fluid-HTNCPP/Tasks/CompoundTasks/Selector.h"
+#include "Fluid-HTNCPP/Tasks/CompoundTasks/RandomSelector.h"
+#include "Fluid-HTNCPP/Tasks/OtherTasks/Slot.h"
+#include "Fluid-HTNCPP/Conditions/Condition.h"
+#include "Fluid-HTNCPP/Operators/Operator.h"
+#include "Fluid-HTNCPP/Effects/Effect.h"
 
 namespace FluidHTN
 {
@@ -50,7 +50,7 @@ public:
     /// <typeparam name="P">The type of compound task</typeparam>
     /// <param name="name">The name given to the task, mainly for debug/display purposes</param>
     /// <returns></returns>
-    bool AddCompoundTask(StringType name, SharedPtr<CompoundTask> task)
+    bool AddCompoundTask(StringType name, const SharedPtr<CompoundTask> task)
     {
         task->Name() = name;
 

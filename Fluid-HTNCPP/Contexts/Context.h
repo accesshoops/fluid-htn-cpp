@@ -1,7 +1,7 @@
 #pragma once
-#include "Effects/EffectType.h"
-#include "CoreIncludes/WorldState.h"
-#include "DebugInterfaces/DecompositionLogEntry.h"
+#include "Fluid-HTNCPP/Effects/EffectType.h"
+#include "Fluid-HTNCPP/CoreIncludes/WorldState.h"
+#include "Fluid-HTNCPP/DebugInterfaces/DecompositionLogEntry.h"
 
 namespace FluidHTN
 {
@@ -87,7 +87,6 @@ public:
 
     virtual ArrayType<int> GetWorldStateChangeDepth() = 0;
 
-    virtual void RealTimeLog(StringType name, StringType description){}
     virtual void Log(StringType             name,
                      StringType             description,
                      int                    depth,

@@ -1,6 +1,6 @@
 #pragma once
-#include "Tasks/Task.h"
-#include "Tasks/PrimitiveTasks/PrimitiveTask.h"
+#include "Fluid-HTNCPP/Tasks/Task.h"
+#include "Fluid-HTNCPP/Tasks/PrimitiveTasks/PrimitiveTask.h"
 
 namespace FluidHTN
 {
@@ -222,7 +222,6 @@ public:
         {
             _currentTask = _plan.front();
             _plan.pop();
-            ctx.RealTimeLog(_currentTask->Name(), "Popped task for execution");
 
             if (_currentTask != nullptr)
             {
@@ -294,7 +293,6 @@ public:
                         }
                     }
 
-                    ctx.RealTimeLog(task->Name(), "Executing action for primitive task");
                     _LastStatus = task->Operator()->Update(ctx);
 
                     // If the operation finished successfully, we set task to null so that we dequeue the next task in the plan the
@@ -331,10 +329,7 @@ public:
                             ctx.IsDirty() = false;
 
                             if (allowImmediateReplan)
-                            {
-                                ctx.RealTimeLog("Planner"s," Executing immediate replan");
                                 Tick<WSIDTYPE,WSVALTYPE,WSDERIVEDTYPE>(domain, static_cast<BaseContext<WSIDTYPE,WSVALTYPE,WSDERIVEDTYPE>&>(ctx), false);
-                            }
                         }
                     }
 

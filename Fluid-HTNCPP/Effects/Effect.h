@@ -1,7 +1,8 @@
 #pragma once
-#include "Effects/EffectType.h"
-#include "DebugInterfaces/DecompositionLogEntry.h"
-#include "Contexts/Context.h"
+#include "Fluid-HTNCPP/pch.h"
+#include "Fluid-HTNCPP/Effects/EffectType.h"
+#include "Fluid-HTNCPP/DebugInterfaces/DecompositionLogEntry.h"
+#include "Fluid-HTNCPP/Contexts/Context.h"
 
 namespace FluidHTN
 {

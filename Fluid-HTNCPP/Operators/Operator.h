@@ -1,5 +1,6 @@
 #pragma once
-#include "Tasks/Task.h"
+#include "Fluid-HTNCPP/pch.h"
+#include "Fluid-HTNCPP/Tasks/Task.h"
 
 namespace FluidHTN
 {

@@ -1,6 +1,6 @@
 #pragma once
-#include "CoreIncludes/STLTypes.h"
-#include "Tasks/CompoundTasks/DecompositionStatus.h"
+#include "Fluid-HTNCPP/CoreIncludes/STLTypes.h"
+#include "Fluid-HTNCPP/Tasks/CompoundTasks/DecompositionStatus.h"
 
 namespace FluidHTN
 {

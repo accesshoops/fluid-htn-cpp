@@ -1,10 +1,10 @@
 #pragma once
-#include "CoreIncludes/STLTypes.h"
-#include "Tasks/Task.h"
-#include "Effects/Effect.h"
-#include "Operators/Operator.h"
-#include "Conditions/Condition.h"
-#include "Contexts/Context.h"
+#include "Fluid-HTNCPP/CoreIncludes/STLTypes.h"
+#include "Fluid-HTNCPP/Tasks/Task.h"
+#include "Fluid-HTNCPP/Effects/Effect.h"
+#include "Fluid-HTNCPP/Operators/Operator.h"
+#include "Fluid-HTNCPP/Conditions/Condition.h"
+#include "Fluid-HTNCPP/Contexts/Context.h"
 
 namespace FluidHTN
 {

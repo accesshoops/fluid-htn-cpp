@@ -1,7 +1,7 @@
 #pragma once
-#include "Contexts/Context.h"
-#include "Tasks/Task.h"
-#include "Tasks/CompoundTasks/CompoundTask.h"
+#include "Fluid-HTNCPP/Contexts/Context.h"
+#include "Fluid-HTNCPP/Tasks/Task.h"
+#include "Fluid-HTNCPP/Tasks/CompoundTasks/CompoundTask.h"
 
 namespace FluidHTN
 {

@@ -1,8 +1,8 @@
 #pragma once
-#include "Tasks/PrimitiveTasks/PrimitiveTask.h"
-#include "Tasks/CompoundTasks/PausePlanTask.h"
-#include "Tasks/CompoundTasks/CompoundTask.h"
-#include "Contexts/Context.h"
+#include "Fluid-HTNCPP/Tasks/PrimitiveTasks/PrimitiveTask.h"
+#include "Fluid-HTNCPP/Tasks/CompoundTasks/PausePlanTask.h"
+#include "Fluid-HTNCPP/Tasks/CompoundTasks/CompoundTask.h"
+#include "Fluid-HTNCPP/Contexts/Context.h"
 
 namespace FluidHTN
 {

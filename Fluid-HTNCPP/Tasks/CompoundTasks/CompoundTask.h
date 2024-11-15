@@ -1,9 +1,9 @@
 #pragma once
-#include "CoreIncludes/STLTypes.h"
-#include "Tasks/Task.h"
-#include "Conditions/Condition.h"
-#include "DebugInterfaces/DecompositionLogEntry.h"
-#include "Contexts/Context.h"
+#include "Fluid-HTNCPP/CoreIncludes/STLTypes.h"
+#include "Fluid-HTNCPP/Tasks/Task.h"
+#include "Fluid-HTNCPP/Conditions/Condition.h"
+#include "Fluid-HTNCPP/DebugInterfaces/DecompositionLogEntry.h"
+#include "Fluid-HTNCPP/Contexts/Context.h"
 
 namespace FluidHTN
 {

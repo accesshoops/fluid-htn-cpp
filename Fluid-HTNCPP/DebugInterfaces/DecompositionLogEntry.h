@@ -1,5 +1,5 @@
 #pragma once
-#include "CoreIncludes/STLTypes.h"
+#include "Fluid-HTNCPP/CoreIncludes/STLTypes.h"
 
 namespace FluidHTN
 {

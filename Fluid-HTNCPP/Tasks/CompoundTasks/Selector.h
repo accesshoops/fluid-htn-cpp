@@ -1,9 +1,9 @@
 #pragma once
-#include "CoreIncludes/STLTypes.h"
-#include "Tasks/CompoundTasks/CompoundTask.h"
-#include "Tasks/PrimitiveTasks/PrimitiveTask.h"
-#include "Tasks/OtherTasks/Slot.h"
-#include "Contexts/Context.h"
+#include "Fluid-HTNCPP/CoreIncludes/STLTypes.h"
+#include "Fluid-HTNCPP/Tasks/CompoundTasks/CompoundTask.h"
+#include "Fluid-HTNCPP/Tasks/PrimitiveTasks/PrimitiveTask.h"
+#include "Fluid-HTNCPP/Tasks/OtherTasks/Slot.h"
+#include "Fluid-HTNCPP/Contexts/Context.h"
 
 namespace FluidHTN
 {
@@ -312,7 +312,7 @@ protected:
         if (ctx.LogDecomposition())
         {
             Log(ctx,
-                "Selector.OnDecomposeSlot:"s + DecompositionStatusToString(s) + "!"s,
+                "Selector.OnDecomposeSlot:"s + ToString((int)s) + "!"s,
                 s == DecompositionStatus::Succeeded ? ConsoleColor::Green : ConsoleColor::Red);
         }
         return s;

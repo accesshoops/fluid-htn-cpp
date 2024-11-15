@@ -1,12 +1,11 @@
 #pragma once
-#include "Tasks/Task.h"
-#include "Tasks/CompoundTasks/DecompositionStatus.h"
-#include "Contexts/Context.h"
-#include "Tasks/PrimitiveTasks/PrimitiveTask.h"
-#include "Tasks/CompoundTasks/CompoundTask.h"
-#include "Tasks/CompoundTasks/Selector.h"
-#include "Tasks/OtherTasks/Slot.h"
-#include "Domain.h"
+#include "Fluid-HTNCPP/Tasks/Task.h"
+#include "Fluid-HTNCPP/Tasks/CompoundTasks/DecompositionStatus.h"
+#include "Fluid-HTNCPP/Contexts/Context.h"
+#include "Fluid-HTNCPP/Tasks/PrimitiveTasks/PrimitiveTask.h"
+#include "Fluid-HTNCPP/Tasks/CompoundTasks/CompoundTask.h"
+#include "Fluid-HTNCPP/Tasks/CompoundTasks/Selector.h"
+#include "Fluid-HTNCPP/Tasks/OtherTasks/Slot.h"
 
 namespace FluidHTN
 {
@@ -39,7 +38,7 @@ public:
         FHTN_FATAL_EXCEPTION(_slots.Find(slot->SlotId()) == _slots.End(), "slot already exists in domain definition");
         parent->AddSubTask(StaticCastPtr<ITask>(slot));
         slot->Parent() = parent;
-        _slots.Insert(MakePair(slot->SlotId(), slot));
+        _slots.Insert(DoMakePair(slot->SlotId(), slot));
         return true;
     }
 
